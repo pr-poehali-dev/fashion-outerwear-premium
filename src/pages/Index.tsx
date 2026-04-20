@@ -683,6 +683,14 @@ export default function Index() {
         </div>
       </section>
 
+      {/* SEO nav */}
+      <nav aria-label="Навигация по сайту" style={{ position: "absolute", left: "-9999px", width: "1px", height: "1px", overflow: "hidden" }}>
+        <a href="#catalog">Каталог</a>
+        <a href="#benefits">Преимущества</a>
+        <a href="#trust">Доверие</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
       {/* ── FOOTER ───────────────────────────────────────── */}
       <footer
         className="py-10 px-6"
