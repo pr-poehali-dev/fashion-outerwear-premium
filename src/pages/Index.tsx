@@ -455,7 +455,7 @@ export default function Index() {
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <a href="#contact" className="btn-primary text-sm">
-                Оставить заявку
+                Позвонить
                 <Icon name="ArrowRight" size={14} />
               </a>
               <a href="#catalog" className="btn-secondary text-sm">
