@@ -55,6 +55,29 @@ const FAQ_ITEMS = [
   },
 ];
 
+const REVIEWS = [
+  {
+    name: "Марина",
+    age: "34 года",
+    text: "Купила здесь пальто и очень довольна. Село хорошо, материал приятный, выглядит дорого. Буду смотреть ещё на следующий сезон.",
+  },
+  {
+    name: "Игорь",
+    age: "41 год",
+    text: "Брал кожаную куртку. Качество отличное, пошив аккуратный, размер подошёл сразу. Ношу почти каждый день, пока всё нравится.",
+  },
+  {
+    name: "Ольга",
+    age: "29 лет",
+    text: "Долго искала тёплый и красивый пуховик. Здесь нашла именно то, что хотела. Тепло, удобно и стиль не потерялся.",
+  },
+  {
+    name: "Елена",
+    age: "46 лет",
+    text: "Покупала дублёнку. Очень довольна покупкой: мягкая, тёплая, выглядит аккуратно. Спасибо за хороший сервис и помощь с размером.",
+  },
+];
+
 const STATS = [
   { value: "10+", label: "категорий" },
   { value: "3", label: "типа материалов" },
@@ -94,6 +117,7 @@ export default function Index() {
   const trustReveal = useReveal();
   const ctaReveal = useReveal();
   const faqReveal = useReveal();
+  const reviewsReveal = useReveal();
 
   const NAV = ["Каталог", "Преимущества", "Доверие", "FAQ"];
   const navHrefs = ["#catalog", "#benefits", "#trust", "#faq"];
@@ -522,6 +546,52 @@ export default function Index() {
                     {item.a}
                   </div>
                 )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── REVIEWS ──────────────────────────────────────── */}
+      <section id="reviews" className="py-28 px-6" style={{ borderTop: "1px solid #2a2a31" }}>
+        <div ref={reviewsReveal.ref} className="max-w-7xl mx-auto">
+          <div className={`mb-14 reveal ${reviewsReveal.visible ? "visible" : ""}`}>
+            <span className="section-eyebrow">Отзывы</span>
+            <div className="accent-bar" />
+            <h2
+              className="font-oswald"
+              style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.6rem)", fontWeight: 600, letterSpacing: "0.02em" }}
+            >
+              Что говорят покупатели
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            {REVIEWS.map((r, i) => (
+              <div
+                key={i}
+                className={`reveal delay-${i + 1} ${reviewsReveal.visible ? "visible" : ""}`}
+                style={{
+                  background: "#17171a",
+                  border: "1px solid #2a2a31",
+                  padding: "28px 32px",
+                }}
+              >
+                <div className="flex gap-1 mb-4">
+                  {[...Array(5)].map((_, s) => (
+                    <Icon key={s} name="Star" size={13} style={{ color: "#d7b56d" }} />
+                  ))}
+                </div>
+                <p className="font-ibm text-sm leading-7 mb-5" style={{ color: "#b8b8c2", fontWeight: 300 }}>
+                  «{r.text}»
+                </p>
+                <div style={{ borderTop: "1px solid #2a2a31", paddingTop: "16px" }}>
+                  <span className="font-oswald text-sm tracking-widest" style={{ color: "#f5f5f7", letterSpacing: "0.1em" }}>
+                    {r.name}
+                  </span>
+                  <span className="font-ibm text-xs ml-3" style={{ color: "#5a5a6a" }}>
+                    {r.age}
+                  </span>
+                </div>
               </div>
             ))}
           </div>
