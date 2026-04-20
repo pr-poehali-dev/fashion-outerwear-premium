@@ -227,12 +227,12 @@ export default function Index() {
             src={HERO_IMG}
             alt="Fashion Outerwear"
             className="w-full h-full object-cover"
-            style={{ opacity: 0.45 }}
+            style={{ opacity: 0.3 }}
           />
           <div
             className="absolute inset-0"
             style={{
-              background: "linear-gradient(90deg, #0f0f10 20%, rgba(15,15,16,0.4) 60%, rgba(15,15,16,0.15) 100%)",
+              background: "linear-gradient(90deg, #0f0f10 30%, rgba(15,15,16,0.5) 70%, rgba(15,15,16,0.2) 100%)",
             }}
           />
         </div>
@@ -250,7 +250,7 @@ export default function Index() {
 
         <div
           ref={heroReveal.ref}
-          className="relative z-10 max-w-7xl mx-auto px-6 w-full pt-28 pb-20"
+          className="relative z-10 max-w-7xl mx-auto px-5 md:px-6 w-full pt-24 md:pt-28 pb-16 md:pb-20"
         >
           <div
             className={`max-w-xl transition-all duration-1000 ${heroReveal.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
@@ -258,11 +258,11 @@ export default function Index() {
             <span className="section-eyebrow">Кожа • Мех • Текстиль</span>
 
             <h1
-              className="font-oswald mb-6"
+              className="font-oswald mb-5 md:mb-6"
               style={{
-                fontSize: "clamp(2.4rem, 5vw, 4rem)",
+                fontSize: "clamp(2rem, 8vw, 4rem)",
                 fontWeight: 600,
-                lineHeight: 1.08,
+                lineHeight: 1.1,
                 letterSpacing: "0.01em",
                 color: "#f5f5f7",
               }}
@@ -275,10 +275,10 @@ export default function Index() {
             </h1>
 
             <p
-              className="mb-10 font-ibm"
+              className="mb-8 md:mb-10 font-ibm"
               style={{
                 color: "#b8b8c2",
-                fontSize: "0.95rem",
+                fontSize: "0.9rem",
                 lineHeight: 1.75,
                 fontWeight: 300,
                 maxWidth: "440px",
@@ -288,7 +288,7 @@ export default function Index() {
               кто выбирает уверенный образ, комфорт и качество на весь сезон.
             </p>
 
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
               <a href="#catalog" className="btn-primary">
                 Смотреть каталог
                 <Icon name="ArrowRight" size={14} />
@@ -301,24 +301,24 @@ export default function Index() {
 
           {/* Stats strip */}
           <div
-            className={`mt-20 inline-flex border transition-all duration-1000 delay-300 ${heroReveal.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
-            style={{ borderColor: "#2a2a31", background: "rgba(23,23,26,0.8)" }}
+            className={`mt-12 md:mt-20 flex border transition-all duration-1000 delay-300 ${heroReveal.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+            style={{ borderColor: "#2a2a31", background: "rgba(23,23,26,0.8)", display: "inline-flex" }}
           >
             {STATS.map((s, i) => (
               <div
                 key={i}
-                className="px-8 py-5 text-center"
+                className="px-5 md:px-8 py-4 md:py-5 text-center"
                 style={{ borderRight: i < STATS.length - 1 ? "1px solid #2a2a31" : "none" }}
               >
                 <div
-                  className="font-oswald text-3xl mb-1"
+                  className="font-oswald text-2xl md:text-3xl mb-1"
                   style={{ color: "#d7b56d", fontWeight: 600, letterSpacing: "0.05em" }}
                 >
                   {s.value}
                 </div>
                 <div
                   className="font-ibm text-xs"
-                  style={{ color: "#b8b8c2", letterSpacing: "0.1em", textTransform: "uppercase" }}
+                  style={{ color: "#b8b8c2", letterSpacing: "0.08em", textTransform: "uppercase" }}
                 >
                   {s.label}
                 </div>
@@ -329,7 +329,7 @@ export default function Index() {
       </section>
 
       {/* ── BENEFITS ──────────────────────────────────────── */}
-      <section id="benefits" className="py-28 px-6" style={{ borderTop: "1px solid #2a2a31" }}>
+      <section id="benefits" className="py-16 md:py-28 px-5 md:px-6" style={{ borderTop: "1px solid #2a2a31" }}>
         <div
           ref={benefitsReveal.ref}
           className="max-w-7xl mx-auto"
@@ -377,7 +377,7 @@ export default function Index() {
       </section>
 
       {/* ── CATALOG ──────────────────────────────────────── */}
-      <section id="catalog" className="py-28 px-6" style={{ background: "#13131600", borderTop: "1px solid #2a2a31" }}>
+      <section id="catalog" className="py-16 md:py-28 px-5 md:px-6" style={{ background: "#13131600", borderTop: "1px solid #2a2a31" }}>
         <div ref={catalogReveal.ref} className="max-w-7xl mx-auto">
           <div className={`mb-16 reveal ${catalogReveal.visible ? "visible" : ""}`}>
             <span className="section-eyebrow">Ассортимент</span>
@@ -416,9 +416,9 @@ export default function Index() {
       </section>
 
       {/* ── TRUST ────────────────────────────────────────── */}
-      <section id="trust" className="py-28 px-6" style={{ borderTop: "1px solid #2a2a31" }}>
+      <section id="trust" className="py-16 md:py-28 px-5 md:px-6" style={{ borderTop: "1px solid #2a2a31" }}>
         <div ref={trustReveal.ref} className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
+          <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
             <div>
               <div className={`reveal ${trustReveal.visible ? "visible" : ""}`}>
                 <span className="section-eyebrow">Доверие</span>
@@ -457,7 +457,7 @@ export default function Index() {
                   src={TEXTURE_IMG}
                   alt="Качество материалов"
                   className="w-full object-cover"
-                  style={{ height: "420px", filter: "brightness(0.75) saturate(0.8)" }}
+                  style={{ height: "280px", filter: "brightness(0.75) saturate(0.8)" }}
                 />
                 <div
                   className="absolute inset-0"
@@ -487,7 +487,7 @@ export default function Index() {
       {/* ── CTA ──────────────────────────────────────────── */}
       <section
         id="cta"
-        className="py-24 px-6"
+        className="py-16 md:py-24 px-5 md:px-6"
         style={{
           borderTop: "1px solid #2a2a31",
           background: "linear-gradient(135deg, #17171a 0%, #0f0f10 100%)",
@@ -514,7 +514,7 @@ export default function Index() {
               Оставьте заявку или перейдите в каталог — и подберите модель под свой стиль,
               сезон и привычный ритм жизни.
             </p>
-            <div className="flex flex-wrap gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center">
               <a href="#contact" className="btn-primary text-sm">
                 Позвонить
                 <Icon name="ArrowRight" size={14} />
@@ -528,7 +528,7 @@ export default function Index() {
       </section>
 
       {/* ── FAQ ──────────────────────────────────────────── */}
-      <section id="faq" className="py-28 px-6" style={{ borderTop: "1px solid #2a2a31" }}>
+      <section id="faq" className="py-16 md:py-28 px-5 md:px-6" style={{ borderTop: "1px solid #2a2a31" }}>
         <div ref={faqReveal.ref} className="max-w-3xl mx-auto">
           <div className={`mb-14 reveal ${faqReveal.visible ? "visible" : ""}`}>
             <span className="section-eyebrow">FAQ</span>
@@ -549,7 +549,7 @@ export default function Index() {
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                 >
                   <span
-                    className="font-oswald text-lg pr-8"
+                    className="font-oswald text-base md:text-lg pr-4 md:pr-8"
                     style={{
                       color: openFaq === i ? "#d7b56d" : "#f5f5f7",
                       fontWeight: 400,
@@ -590,7 +590,7 @@ export default function Index() {
       </section>
 
       {/* ── REVIEWS ──────────────────────────────────────── */}
-      <section id="reviews" className="py-28 px-6" style={{ borderTop: "1px solid #2a2a31" }}>
+      <section id="reviews" className="py-16 md:py-28 px-5 md:px-6" style={{ borderTop: "1px solid #2a2a31" }}>
         <div ref={reviewsReveal.ref} className="max-w-3xl mx-auto">
           <div className={`mb-14 reveal ${reviewsReveal.visible ? "visible" : ""}`}>
             <span className="section-eyebrow">Отзывы</span>
@@ -609,8 +609,8 @@ export default function Index() {
               style={{
                 background: "#17171a",
                 border: "1px solid #2a2a31",
-                padding: "36px 40px",
-                minHeight: "220px",
+                padding: "28px 20px",
+                minHeight: "240px",
                 position: "relative",
                 overflow: "hidden",
               }}
@@ -621,7 +621,7 @@ export default function Index() {
                   style={{
                     position: i === 0 ? "relative" : "absolute",
                     inset: 0,
-                    padding: "36px 40px",
+                    padding: "28px 20px",
                     opacity: reviewIndex === i ? 1 : 0,
                     transform: reviewIndex === i ? "translateY(0)" : "translateY(12px)",
                     transition: "opacity 0.6s ease, transform 0.6s ease",

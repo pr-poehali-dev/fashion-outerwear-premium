@@ -281,6 +281,26 @@
   margin-bottom: 10px;
 }
 
+/* ── MOBILE ─────────────────────────────────────────── */
+@media (max-width: 767px) {
+  .catalog-card {
+    padding: 20px 16px;
+  }
+  .benefit-card {
+    padding: 24px 20px;
+  }
+  .trust-row {
+    padding: 16px 0;
+    gap: 12px;
+  }
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    justify-content: center;
+    padding: 14px 20px;
+  }
+}
+
 ::-webkit-scrollbar {
   width: 3px;
 }
