@@ -13,6 +13,7 @@ const PRODUCTS = [
   { category: "Текстиль", name: "Джинсовые куртки", icon: "Grid3x3" },
   { category: "Текстиль", name: "Тренчи", icon: "Minus" },
   { category: "Тепло", name: "Зимние пуховики", icon: "Flame" },
+  { category: "Текстиль", name: "Лёгкие модели", icon: "Feather" },
 ];
 
 const BENEFITS = [
