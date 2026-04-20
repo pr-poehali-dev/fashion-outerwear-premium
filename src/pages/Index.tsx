@@ -172,8 +172,8 @@ export default function Index() {
         }}
       >
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="font-oswald font-semibold tracking-widest text-lg" style={{ color: "#f5f5f7", letterSpacing: "0.2em" }}>
-            ЛЕОН
+          <div style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", fontWeight: 600, fontSize: "2rem", color: "#d7b56d", letterSpacing: "0.04em", lineHeight: 1 }}>
+            Леон
           </div>
           <nav className="hidden md:flex items-center gap-8">
             {NAV.map((item, i) => (
@@ -700,8 +700,8 @@ export default function Index() {
         }}
       >
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="font-oswald tracking-widest font-semibold" style={{ color: "#f5f5f7", letterSpacing: "0.18em" }}>
-            ЛЕОН
+          <div style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", fontWeight: 600, fontSize: "1.8rem", color: "#d7b56d", letterSpacing: "0.04em", lineHeight: 1 }}>
+            Леон
           </div>
           <div className="hidden md:flex items-center gap-6">
             {["Каталог", "Преимущества", "Доверие", "FAQ"].map((item, i) => (
