@@ -76,6 +76,26 @@ const REVIEWS = [
     age: "46 лет",
     text: "Покупала дублёнку. Очень довольна покупкой: мягкая, тёплая, выглядит аккуратно. Спасибо за хороший сервис и помощь с размером.",
   },
+  {
+    name: "Анна",
+    age: "32 года",
+    text: "Я влюбилась в свою дублёнку с первого примерки. Она такая мягкая, уютная и при этом выглядит очень красиво. Наконец-то нашла вещь, которую хочется носить снова и снова.",
+  },
+  {
+    name: "Дмитрий",
+    age: "39 лет",
+    text: "Честно, не ожидал такого качества. Куртка села отлично, кожа приятная, швы аккуратные. Когда надел — сразу почувствовал, что это хорошая покупка, не на один сезон.",
+  },
+  {
+    name: "Светлана",
+    age: "27 лет",
+    text: "Пуховик просто спас этой зимой. Очень тёплый, удобный и не выглядит громоздко, что для меня было важно, всё прошло легко и без нервов.",
+  },
+  {
+    name: "Наталья",
+    age: "45 лет",
+    text: "Долго сомневалась, брать или нет, но в итоге осталась очень довольна. Пальто смотрится элегантно, сидит красиво и подчёркивает фигуру. Получила кучу комплиментов уже в первый день.",
+  },
 ];
 
 const STATS = [
@@ -118,6 +138,14 @@ export default function Index() {
   const ctaReveal = useReveal();
   const faqReveal = useReveal();
   const reviewsReveal = useReveal();
+  const [reviewIndex, setReviewIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setReviewIndex((prev) => (prev + 1) % REVIEWS.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
 
   const NAV = ["Каталог", "Преимущества", "Доверие", "FAQ"];
   const navHrefs = ["#catalog", "#benefits", "#trust", "#faq"];
@@ -554,7 +582,7 @@ export default function Index() {
 
       {/* ── REVIEWS ──────────────────────────────────────── */}
       <section id="reviews" className="py-28 px-6" style={{ borderTop: "1px solid #2a2a31" }}>
-        <div ref={reviewsReveal.ref} className="max-w-7xl mx-auto">
+        <div ref={reviewsReveal.ref} className="max-w-3xl mx-auto">
           <div className={`mb-14 reveal ${reviewsReveal.visible ? "visible" : ""}`}>
             <span className="section-eyebrow">Отзывы</span>
             <div className="accent-bar" />
@@ -565,35 +593,69 @@ export default function Index() {
               Что говорят покупатели
             </h2>
           </div>
-          <div className="grid md:grid-cols-2 gap-6">
-            {REVIEWS.map((r, i) => (
-              <div
-                key={i}
-                className={`reveal delay-${i + 1} ${reviewsReveal.visible ? "visible" : ""}`}
-                style={{
-                  background: "#17171a",
-                  border: "1px solid #2a2a31",
-                  padding: "28px 32px",
-                }}
-              >
-                <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, s) => (
-                    <Icon key={s} name="Star" size={13} style={{ color: "#d7b56d" }} />
-                  ))}
+
+          {/* Карусель */}
+          <div className={`reveal ${reviewsReveal.visible ? "visible" : ""}`}>
+            <div
+              style={{
+                background: "#17171a",
+                border: "1px solid #2a2a31",
+                padding: "36px 40px",
+                minHeight: "220px",
+                position: "relative",
+                overflow: "hidden",
+              }}
+            >
+              {REVIEWS.map((r, i) => (
+                <div
+                  key={i}
+                  style={{
+                    position: i === 0 ? "relative" : "absolute",
+                    inset: 0,
+                    padding: "36px 40px",
+                    opacity: reviewIndex === i ? 1 : 0,
+                    transform: reviewIndex === i ? "translateY(0)" : "translateY(12px)",
+                    transition: "opacity 0.6s ease, transform 0.6s ease",
+                    pointerEvents: reviewIndex === i ? "auto" : "none",
+                  }}
+                >
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(5)].map((_, s) => (
+                      <Icon key={s} name="Star" size={13} style={{ color: "#d7b56d" }} />
+                    ))}
+                  </div>
+                  <p className="font-ibm text-sm leading-7 mb-6" style={{ color: "#b8b8c2", fontWeight: 300 }}>
+                    «{r.text}»
+                  </p>
+                  <div style={{ borderTop: "1px solid #2a2a31", paddingTop: "16px" }}>
+                    <span className="font-oswald text-sm" style={{ color: "#f5f5f7", letterSpacing: "0.1em" }}>
+                      {r.name}
+                    </span>
+                    <span className="font-ibm text-xs ml-3" style={{ color: "#5a5a6a" }}>
+                      {r.age}
+                    </span>
+                  </div>
                 </div>
-                <p className="font-ibm text-sm leading-7 mb-5" style={{ color: "#b8b8c2", fontWeight: 300 }}>
-                  «{r.text}»
-                </p>
-                <div style={{ borderTop: "1px solid #2a2a31", paddingTop: "16px" }}>
-                  <span className="font-oswald text-sm tracking-widest" style={{ color: "#f5f5f7", letterSpacing: "0.1em" }}>
-                    {r.name}
-                  </span>
-                  <span className="font-ibm text-xs ml-3" style={{ color: "#5a5a6a" }}>
-                    {r.age}
-                  </span>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
+
+            {/* Точки-индикаторы */}
+            <div className="flex justify-center gap-2 mt-6">
+              {REVIEWS.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setReviewIndex(i)}
+                  style={{
+                    width: reviewIndex === i ? "24px" : "8px",
+                    height: "8px",
+                    background: reviewIndex === i ? "#d7b56d" : "#2a2a31",
+                    border: "none",
+                    cursor: "pointer",
+                    transition: "all 0.3s ease",
+                  }}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>
