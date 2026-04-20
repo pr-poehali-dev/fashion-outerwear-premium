@@ -173,7 +173,7 @@ export default function Index() {
       >
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="font-oswald font-semibold tracking-widest text-lg" style={{ color: "#f5f5f7", letterSpacing: "0.2em" }}>
-            FASHION OUTERWEAR
+            ЛЕОН
           </div>
           <nav className="hidden md:flex items-center gap-8">
             {NAV.map((item, i) => (
@@ -693,7 +693,7 @@ export default function Index() {
       >
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="font-oswald tracking-widest font-semibold" style={{ color: "#f5f5f7", letterSpacing: "0.18em" }}>
-            FASHION OUTERWEAR
+            ЛЕОН
           </div>
           <div className="hidden md:flex items-center gap-6">
             {["Каталог", "Преимущества", "Доверие", "FAQ"].map((item, i) => (
@@ -703,7 +703,7 @@ export default function Index() {
             ))}
           </div>
           <p className="font-ibm text-xs text-center md:text-right" style={{ color: "#2a2a31", letterSpacing: "0.08em" }}>
-            © 2026 Fashion Outerwear. Верхняя одежда из кожи, меха и текстиля.
+            © 2026 Леон. Верхняя одежда из кожи, меха и текстиля.
           </p>
         </div>
       </footer>
