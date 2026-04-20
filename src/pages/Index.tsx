@@ -60,41 +60,49 @@ const REVIEWS = [
     name: "Марина",
     age: "34 года",
     text: "Купила здесь пальто и очень довольна. Село хорошо, материал приятный, выглядит дорого. Буду смотреть ещё на следующий сезон.",
+    photo: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/2cf456e9-1d0f-4547-a595-656f709fd29a.jpg",
   },
   {
     name: "Игорь",
     age: "41 год",
     text: "Брал кожаную куртку. Качество отличное, пошив аккуратный, размер подошёл сразу. Ношу почти каждый день, пока всё нравится.",
+    photo: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/4378b413-d545-4a11-ab05-00bff55e89f2.jpg",
   },
   {
     name: "Ольга",
     age: "29 лет",
     text: "Долго искала тёплый и красивый пуховик. Здесь нашла именно то, что хотела. Тепло, удобно и стиль не потерялся.",
+    photo: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/221097a0-ab1c-4473-a0de-027cff1e763c.jpg",
   },
   {
     name: "Елена",
     age: "46 лет",
     text: "Покупала дублёнку. Очень довольна покупкой: мягкая, тёплая, выглядит аккуратно. Спасибо за хороший сервис и помощь с размером.",
+    photo: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/fda12b00-c1ca-49cd-8331-8d8489fdf6e4.jpg",
   },
   {
     name: "Анна",
     age: "32 года",
     text: "Я влюбилась в свою дублёнку с первого примерки. Она такая мягкая, уютная и при этом выглядит очень красиво. Наконец-то нашла вещь, которую хочется носить снова и снова.",
+    photo: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/04af052b-0e79-480c-a167-970aecef7d8e.jpg",
   },
   {
     name: "Дмитрий",
     age: "39 лет",
     text: "Честно, не ожидал такого качества. Куртка села отлично, кожа приятная, швы аккуратные. Когда надел — сразу почувствовал, что это хорошая покупка, не на один сезон.",
+    photo: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/8c500bd0-dd05-411d-a78e-bfdff9a98c12.jpg",
   },
   {
     name: "Светлана",
     age: "27 лет",
     text: "Пуховик просто спас этой зимой. Очень тёплый, удобный и не выглядит громоздко, что для меня было важно, всё прошло легко и без нервов.",
+    photo: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/11b5e8fe-bf6e-44d9-bbf4-3c453a0d582c.jpg",
   },
   {
     name: "Наталья",
     age: "45 лет",
     text: "Долго сомневалась, брать или нет, но в итоге осталась очень довольна. Пальто смотрится элегантно, сидит красиво и подчёркивает фигуру. Получила кучу комплиментов уже в первый день.",
+    photo: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/e8997b19-4f6b-4e19-98c7-f310141da74b.jpg",
   },
 ];
 
@@ -619,7 +627,7 @@ export default function Index() {
                     pointerEvents: reviewIndex === i ? "auto" : "none",
                   }}
                 >
-                  <div className="flex gap-1 mb-4">
+                  <div className="flex gap-1 mb-5">
                     {[...Array(5)].map((_, s) => (
                       <Icon key={s} name="Star" size={13} style={{ color: "#d7b56d" }} />
                     ))}
@@ -627,13 +635,27 @@ export default function Index() {
                   <p className="font-ibm text-sm leading-7 mb-6" style={{ color: "#b8b8c2", fontWeight: 300 }}>
                     «{r.text}»
                   </p>
-                  <div style={{ borderTop: "1px solid #2a2a31", paddingTop: "16px" }}>
-                    <span className="font-oswald text-sm" style={{ color: "#f5f5f7", letterSpacing: "0.1em" }}>
-                      {r.name}
-                    </span>
-                    <span className="font-ibm text-xs ml-3" style={{ color: "#5a5a6a" }}>
-                      {r.age}
-                    </span>
+                  <div className="flex items-center gap-4" style={{ borderTop: "1px solid #2a2a31", paddingTop: "16px" }}>
+                    <img
+                      src={r.photo}
+                      alt={r.name}
+                      style={{
+                        width: "48px",
+                        height: "48px",
+                        borderRadius: "50%",
+                        objectFit: "cover",
+                        border: "2px solid #d7b56d",
+                        flexShrink: 0,
+                      }}
+                    />
+                    <div>
+                      <span className="font-oswald text-sm block" style={{ color: "#f5f5f7", letterSpacing: "0.1em" }}>
+                        {r.name}
+                      </span>
+                      <span className="font-ibm text-xs" style={{ color: "#5a5a6a" }}>
+                        {r.age}
+                      </span>
+                    </div>
                   </div>
                 </div>
               ))}
