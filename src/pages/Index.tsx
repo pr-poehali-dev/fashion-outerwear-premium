@@ -120,7 +120,7 @@ export default function Index() {
             ))}
           </nav>
           <a href="#cta" className="hidden md:inline-flex btn-primary py-2.5 px-6 text-xs">
-            Заказать звонок
+            Позвонить
           </a>
           <button
             className="md:hidden"
@@ -150,7 +150,7 @@ export default function Index() {
             </a>
           ))}
           <a href="#cta" className="btn-primary mt-4" onClick={() => setMobileOpen(false)}>
-            Заказать звонок
+            Позвонить
           </a>
         </div>
       )}
