@@ -683,6 +683,41 @@ export default function Index() {
         </div>
       </section>
 
+      {/* ── VIDEO REVIEWS ────────────────────────────────── */}
+      <section id="video-reviews" className="py-16 md:py-28 px-5 md:px-6" style={{ borderTop: "1px solid #2a2a31" }}>
+        <div className="max-w-3xl mx-auto">
+          <div className="mb-14">
+            <span className="section-eyebrow">Видео-отзывы</span>
+            <div className="accent-bar" />
+            <h2
+              className="font-oswald"
+              style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.6rem)", fontWeight: 600, letterSpacing: "0.02em" }}
+            >
+              Живые отзывы наших клиентов
+            </h2>
+          </div>
+
+          <div
+            style={{
+              background: "#17171a",
+              border: "1px solid #2a2a31",
+              borderRadius: "4px",
+              overflow: "hidden",
+            }}
+          >
+            <video
+              controls
+              style={{ width: "100%", display: "block", maxHeight: "520px", background: "#000" }}
+            >
+              <source
+                src="https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/2acc29c7-7071-44a2-81dc-f423009bb691.mp4"
+                type="video/mp4"
+              />
+            </video>
+          </div>
+        </div>
+      </section>
+
       {/* SEO nav */}
       <nav aria-label="Навигация по сайту" style={{ position: "absolute", left: "-9999px", width: "1px", height: "1px", overflow: "hidden" }}>
         <a href="#catalog">Каталог</a>
