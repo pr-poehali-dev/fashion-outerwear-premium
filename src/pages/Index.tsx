@@ -710,7 +710,7 @@ export default function Index() {
               style={{ width: "100%", display: "block", maxHeight: "520px", background: "#000" }}
             >
               <source
-                src="https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/2acc29c7-7071-44a2-81dc-f423009bb691.mp4"
+                src="https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/bucket/0cdf4226-94b6-437a-98d3-a4e6f470b8bb.mp4"
                 type="video/mp4"
               />
             </video>
