@@ -176,6 +176,22 @@
 .catalog-card:hover::before {
   height: 100%;
 }
+.catalog-card::after {
+  content: "Ж";
+  font-family: "Great Vibes", cursive;
+  font-size: 5rem;
+  color: #d7b56d;
+  opacity: 0.12;
+  position: absolute;
+  top: -8px;
+  right: 10px;
+  line-height: 1;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+.catalog-card:hover::after {
+  opacity: 0.22;
+}
 
 .benefit-card {
   background: #17171a;
