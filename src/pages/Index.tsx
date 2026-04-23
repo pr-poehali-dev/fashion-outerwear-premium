@@ -697,24 +697,30 @@ export default function Index() {
             </h2>
           </div>
 
-          <div
-            style={{
-              background: "#17171a",
-              border: "1px solid #2a2a31",
-              borderRadius: "4px",
-              overflow: "hidden",
-            }}
-          >
-            <video
-              controls
-              muted
-              style={{ width: "100%", display: "block", maxHeight: "520px", background: "#000" }}
-            >
-              <source
-                src="https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/bucket/0cdf4226-94b6-437a-98d3-a4e6f470b8bb.mp4"
-                type="video/mp4"
-              />
-            </video>
+          <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+            {[
+              "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/bucket/0cdf4226-94b6-437a-98d3-a4e6f470b8bb.mp4",
+              "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/bucket/9c8c8c4f-7708-4524-8bd9-0168677ac610.mp4",
+              "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/bucket/75c4a518-3419-455b-9f8f-c5f81f3d66a6.mp4",
+            ].map((src, i) => (
+              <div
+                key={i}
+                style={{
+                  background: "#17171a",
+                  border: "1px solid #2a2a31",
+                  borderRadius: "4px",
+                  overflow: "hidden",
+                }}
+              >
+                <video
+                  controls
+                  muted
+                  style={{ width: "100%", display: "block", maxHeight: "520px", background: "#000" }}
+                >
+                  <source src={src} type="video/mp4" />
+                </video>
+              </div>
+            ))}
           </div>
         </div>
       </section>
