@@ -14,6 +14,8 @@ const PRODUCTS = [
   { category: "Текстиль", name: "Тренчи", icon: "Minus" },
   { category: "Тепло", name: "Зимние пуховики", icon: "Flame" },
   { category: "Текстиль", name: "Лёгкие модели", icon: "Feather" },
+  { category: "Кожа", name: "Кожаные куртки", icon: "Zap", letter: "М" },
+  { category: "Мех", name: "Дублёнки", icon: "Wind", letter: "М" },
 ];
 
 const BENEFITS = [
@@ -415,7 +417,7 @@ export default function Index() {
             {PRODUCTS.map((p, i) => (
               <div
                 key={i}
-                className={`catalog-card reveal delay-${i + 1} ${catalogReveal.visible ? "visible" : ""}`}
+                className={`catalog-card${p.letter === "М" ? " catalog-card--m" : ""} reveal delay-${i + 1} ${catalogReveal.visible ? "visible" : ""}`}
               >
                 <div className="cat-tag">{p.category}</div>
                 <div className="flex items-start justify-between">

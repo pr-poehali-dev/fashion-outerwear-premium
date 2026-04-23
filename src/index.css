@@ -192,7 +192,9 @@
 .catalog-card:hover::after {
   opacity: 0.22;
 }
-
+.catalog-card--m::after {
+  content: "М";
+}
 .benefit-card {
   background: #17171a;
   border: 1px solid #2a2a31;
