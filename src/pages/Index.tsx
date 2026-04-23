@@ -173,8 +173,13 @@ export default function Index() {
         }}
       >
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", fontWeight: 600, fontSize: "2rem", color: "#d7b56d", letterSpacing: "0.04em", lineHeight: 1 }}>
-            Леон
+          <div style={{ lineHeight: 1 }}>
+            <div style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", fontWeight: 600, fontSize: "2rem", color: "#d7b56d", letterSpacing: "0.04em", lineHeight: 1 }}>
+              Леон
+            </div>
+            <div style={{ fontFamily: "'Great Vibes', cursive", fontSize: "1rem", color: "#b8906a", letterSpacing: "0.03em", lineHeight: 1, marginTop: "2px" }}>
+              Владивосток
+            </div>
           </div>
           <nav className="hidden md:flex items-center gap-8">
             {NAV.map((item, i) => (
