@@ -707,6 +707,7 @@ export default function Index() {
           >
             <video
               controls
+              muted
               style={{ width: "100%", display: "block", maxHeight: "520px", background: "#000" }}
             >
               <source
