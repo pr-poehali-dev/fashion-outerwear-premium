@@ -281,11 +281,9 @@ export default function Index() {
                 color: "#f5f5f7",
               }}
             >
-              Верхняя одежда,{" "}
+              Верхняя одежда во Владивостоке —{" "}
               <br />
-              <span style={{ color: "#d7b56d" }}>в которой тепло,</span>
-              <br />
-              стильно и надолго
+              <span style={{ color: "#d7b56d" }}>магазин Леон</span>
             </h1>
 
             <p
@@ -400,11 +398,17 @@ export default function Index() {
               className="font-oswald"
               style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", fontWeight: 600, letterSpacing: "0.02em" }}
             >
-              Что есть в коллекции
+              Пальто, пуховики, дублёнки, шубы и кожаные куртки
             </h2>
             <p className="font-ibm mt-4" style={{ color: "#b8b8c2", fontSize: "0.9rem", lineHeight: 1.7, maxWidth: "480px", fontWeight: 300 }}>
               Ассортимент охватывает ключевые категории верхней одежды для холодной, прохладной и межсезонной погоды.
             </p>
+            <h2 style={{ position: "absolute", width: "1px", height: "1px", overflow: "hidden", clip: "rect(0,0,0,0)", whiteSpace: "nowrap" }}>
+              Магазин кожаных курток Владивосток
+            </h2>
+            <h2 style={{ position: "absolute", width: "1px", height: "1px", overflow: "hidden", clip: "rect(0,0,0,0)", whiteSpace: "nowrap" }}>
+              Купить верхнюю одежду в Приморском крае
+            </h2>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
