@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Icon from "@/components/ui/icon";
 
 const HERO_IMG = "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/3be4525b-5cdf-43fd-a6bd-d6a988b50056.jpg";
@@ -133,6 +133,7 @@ export default function Index() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [phoneModalOpen, setPhoneModalOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -515,10 +516,10 @@ export default function Index() {
               сезон и привычный ритм жизни.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center">
-              <a href="#contact" className="btn-primary text-sm">
+              <button onClick={() => setPhoneModalOpen(true)} className="btn-primary text-sm">
                 Позвонить
-                <Icon name="ArrowRight" size={14} />
-              </a>
+                <Icon name="Phone" size={14} />
+              </button>
               <a href="#catalog" className="btn-secondary text-sm">
                 В каталог
               </a>
@@ -757,6 +758,49 @@ export default function Index() {
           </p>
         </div>
       </footer>
+
+      {phoneModalOpen && (
+        <div
+          onClick={() => setPhoneModalOpen(false)}
+          style={{
+            position: "fixed", inset: 0, zIndex: 1000,
+            background: "rgba(0,0,0,0.7)", backdropFilter: "blur(4px)",
+            display: "flex", alignItems: "center", justifyContent: "center",
+          }}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              background: "#17171a", border: "1px solid #2a2a31",
+              borderRadius: "8px", padding: "40px 48px",
+              textAlign: "center", minWidth: "280px",
+            }}
+          >
+            <Icon name="Phone" size={32} style={{ color: "#d7b56d", marginBottom: "16px" }} />
+            <p className="font-ibm" style={{ color: "#b8b8c2", fontSize: "0.8rem", marginBottom: "8px", letterSpacing: "0.08em" }}>
+              ПОЗВОНИТЕ НАМ
+            </p>
+            <a
+              href="tel:+74232634509"
+              className="font-oswald"
+              style={{ fontSize: "1.6rem", color: "#d7b56d", fontWeight: 600, letterSpacing: "0.04em", textDecoration: "none" }}
+            >
+              +7 (423) 263-45-09
+            </a>
+            <button
+              onClick={() => setPhoneModalOpen(false)}
+              style={{
+                display: "block", margin: "24px auto 0",
+                background: "transparent", border: "1px solid #2a2a31",
+                borderRadius: "4px", padding: "8px 24px",
+                color: "#b8b8c2", fontSize: "0.8rem", cursor: "pointer",
+              }}
+            >
+              Закрыть
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
