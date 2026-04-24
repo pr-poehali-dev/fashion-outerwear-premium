@@ -28,12 +28,12 @@ const CATALOG: AccordionGroup[] = [
     label: "Кожаные куртки",
     icon: "Zap",
     items: [
-      { name: "Куртка Moto Classic", price: 18900, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/9572a07d-c85f-4276-b5d8-ad4ac22d389f.jpg" },
-      { name: "Куртка Biker Edge", price: 22500, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/9572a07d-c85f-4276-b5d8-ad4ac22d389f.jpg" },
-      { name: "Куртка Racer Slim", price: 16700, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/9572a07d-c85f-4276-b5d8-ad4ac22d389f.jpg" },
-      { name: "Куртка Park Street", price: 14900, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/9572a07d-c85f-4276-b5d8-ad4ac22d389f.jpg" },
-      { name: "Куртка Vintage Soft", price: 19800, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/9572a07d-c85f-4276-b5d8-ad4ac22d389f.jpg" },
-      { name: "Куртка Urban Matte", price: 21300, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/9572a07d-c85f-4276-b5d8-ad4ac22d389f.jpg" },
+      { name: "Куртка Moto Classic", price: 18900, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/bucket/a86f6319-c879-414d-aeda-a5dcc81b32c6.png" },
+      { name: "Куртка Biker Edge", price: 22500, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/bucket/8327cda3-f76f-4bb9-b0d4-89cc1cf8dad1.png" },
+      { name: "Куртка Racer Slim", price: 16700, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/bucket/01d19164-ffa7-49e6-908c-9ba1497202e9.png" },
+      { name: "Куртка Park Street", price: 14900, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/bucket/1219686a-59f0-409b-86a1-405688d2a516.png" },
+      { name: "Куртка Vintage Soft", price: 19800, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/bucket/7f46c2d7-fe40-4f14-aa0a-5752f4c95708.png" },
+      { name: "Куртка Urban Matte", price: 21300, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/bucket/1193aa12-46a4-4e92-8a22-29b5b983fcae.png" },
     ],
   },
   {
