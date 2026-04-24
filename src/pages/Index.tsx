@@ -620,7 +620,6 @@ export default function Index() {
                             </div>
                             <div className="product-card__footer">
                               <span className="product-card__price">от {item.price.toLocaleString("ru-RU")} ₽</span>
-                              <button className="product-card__btn">Купить</button>
                             </div>
                           </div>
                         </div>
