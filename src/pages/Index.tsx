@@ -4,18 +4,180 @@ import Icon from "@/components/ui/icon";
 const HERO_IMG = "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/3be4525b-5cdf-43fd-a6bd-d6a988b50056.jpg";
 const TEXTURE_IMG = "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/9261bfed-ae48-45c4-a22e-55f56ef7173a.jpg";
 
-const PRODUCTS = [
-  { category: "Кожа", name: "Кожаные куртки", icon: "Zap" },
-  { category: "Мех", name: "Дублёнки", icon: "Wind" },
-  { category: "Мех", name: "Шубы", icon: "Snowflake" },
-  { category: "Текстиль", name: "Пальто", icon: "Layers" },
-  { category: "Текстиль", name: "Плащи", icon: "Droplets" },
-  { category: "Текстиль", name: "Джинсовые куртки", icon: "Grid3x3" },
-  { category: "Текстиль", name: "Тренчи", icon: "Minus" },
-  { category: "Тепло", name: "Зимние пуховики", icon: "Flame" },
-  { category: "Текстиль", name: "Лёгкие модели", icon: "Feather" },
-  { category: "Кожа", name: "Кожаные куртки", icon: "Zap", letter: "М" },
-  { category: "Мех", name: "Дублёнки", icon: "Wind", letter: "М" },
+const SIZES = ["XS", "S", "M", "L", "XL", "XXL"];
+
+interface ProductItem {
+  name: string;
+  price: number;
+  img: string;
+}
+
+interface AccordionGroup {
+  id: string;
+  category: string;
+  label: string;
+  icon: string;
+  letter?: string;
+  items: ProductItem[];
+}
+
+const CATALOG: AccordionGroup[] = [
+  {
+    id: "leather-w",
+    category: "Кожа",
+    label: "Кожаные куртки",
+    icon: "Zap",
+    items: [
+      { name: "Куртка Moto Classic", price: 18900, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/9572a07d-c85f-4276-b5d8-ad4ac22d389f.jpg" },
+      { name: "Куртка Biker Edge", price: 22500, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/9572a07d-c85f-4276-b5d8-ad4ac22d389f.jpg" },
+      { name: "Куртка Racer Slim", price: 16700, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/9572a07d-c85f-4276-b5d8-ad4ac22d389f.jpg" },
+      { name: "Куртка Park Street", price: 14900, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/9572a07d-c85f-4276-b5d8-ad4ac22d389f.jpg" },
+      { name: "Куртка Vintage Soft", price: 19800, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/9572a07d-c85f-4276-b5d8-ad4ac22d389f.jpg" },
+      { name: "Куртка Urban Matte", price: 21300, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/9572a07d-c85f-4276-b5d8-ad4ac22d389f.jpg" },
+    ],
+  },
+  {
+    id: "shearling-w",
+    category: "Мех",
+    label: "Дублёнки",
+    icon: "Wind",
+    items: [
+      { name: "Дублёнка Boho Beige", price: 24900, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/d3ad7a8e-a153-4b77-afb8-be21acae1781.jpg" },
+      { name: "Дублёнка Toscana Long", price: 31500, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/d3ad7a8e-a153-4b77-afb8-be21acae1781.jpg" },
+      { name: "Дублёнка Prairie Short", price: 19900, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/d3ad7a8e-a153-4b77-afb8-be21acae1781.jpg" },
+      { name: "Дублёнка Sherpa Oversize", price: 27800, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/d3ad7a8e-a153-4b77-afb8-be21acae1781.jpg" },
+      { name: "Дублёнка Classic Sand", price: 22400, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/d3ad7a8e-a153-4b77-afb8-be21acae1781.jpg" },
+      { name: "Дублёнка Winter Wrap", price: 26100, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/d3ad7a8e-a153-4b77-afb8-be21acae1781.jpg" },
+    ],
+  },
+  {
+    id: "fur-w",
+    category: "Мех",
+    label: "Шубы",
+    icon: "Snowflake",
+    items: [
+      { name: "Шуба Mink Prestige", price: 89000, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/27015eea-040f-433d-ae31-dc33704bf51c.jpg" },
+      { name: "Шуба Arctic Luxury", price: 112000, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/27015eea-040f-433d-ae31-dc33704bf51c.jpg" },
+      { name: "Шуба Fox Glam", price: 74500, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/27015eea-040f-433d-ae31-dc33704bf51c.jpg" },
+      { name: "Шуба Silver Dream", price: 98000, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/27015eea-040f-433d-ae31-dc33704bf51c.jpg" },
+      { name: "Шуба Karakul Elite", price: 135000, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/27015eea-040f-433d-ae31-dc33704bf51c.jpg" },
+      { name: "Шуба Sable Classic", price: 156000, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/27015eea-040f-433d-ae31-dc33704bf51c.jpg" },
+    ],
+  },
+  {
+    id: "coat-w",
+    category: "Текстиль",
+    label: "Пальто",
+    icon: "Layers",
+    items: [
+      { name: "Пальто Camel Classic", price: 15900, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/0508d875-ef80-4c19-a60b-07d6b4ce6695.jpg" },
+      { name: "Пальто Check Luxe", price: 18400, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/0508d875-ef80-4c19-a60b-07d6b4ce6695.jpg" },
+      { name: "Пальто Wool Midi", price: 13700, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/0508d875-ef80-4c19-a60b-07d6b4ce6695.jpg" },
+      { name: "Пальто Oversized Dark", price: 17200, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/0508d875-ef80-4c19-a60b-07d6b4ce6695.jpg" },
+      { name: "Пальто Belted Maxi", price: 21000, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/0508d875-ef80-4c19-a60b-07d6b4ce6695.jpg" },
+      { name: "Пальто City Slim", price: 14500, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/0508d875-ef80-4c19-a60b-07d6b4ce6695.jpg" },
+    ],
+  },
+  {
+    id: "raincoat-w",
+    category: "Текстиль",
+    label: "Плащи",
+    icon: "Droplets",
+    items: [
+      { name: "Плащ Rain Shield", price: 8900, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/ef3d24f1-60e3-40f4-8943-604f7c42dec7.jpg" },
+      { name: "Плащ Khaki Storm", price: 11200, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/ef3d24f1-60e3-40f4-8943-604f7c42dec7.jpg" },
+      { name: "Плащ Olive Wrap", price: 9700, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/ef3d24f1-60e3-40f4-8943-604f7c42dec7.jpg" },
+      { name: "Плащ Midi Belted", price: 12400, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/ef3d24f1-60e3-40f4-8943-604f7c42dec7.jpg" },
+      { name: "Плащ Street Minimal", price: 7800, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/ef3d24f1-60e3-40f4-8943-604f7c42dec7.jpg" },
+      { name: "Плащ Double Breasted", price: 13100, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/ef3d24f1-60e3-40f4-8943-604f7c42dec7.jpg" },
+    ],
+  },
+  {
+    id: "denim-w",
+    category: "Текстиль",
+    label: "Джинсовые куртки",
+    icon: "Grid3x3",
+    items: [
+      { name: "Джинсовка Indigo Raw", price: 7200, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/44713c8a-3db8-493d-9075-bffb3d0d7b31.jpg" },
+      { name: "Джинсовка Dark Wash", price: 8500, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/44713c8a-3db8-493d-9075-bffb3d0d7b31.jpg" },
+      { name: "Джинсовка Acid Vintage", price: 6900, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/44713c8a-3db8-493d-9075-bffb3d0d7b31.jpg" },
+      { name: "Джинсовка Sherpa Lined", price: 10400, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/44713c8a-3db8-493d-9075-bffb3d0d7b31.jpg" },
+      { name: "Джинсовка Crop Fit", price: 5900, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/44713c8a-3db8-493d-9075-bffb3d0d7b31.jpg" },
+      { name: "Джинсовка Boyfriend XL", price: 7700, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/44713c8a-3db8-493d-9075-bffb3d0d7b31.jpg" },
+    ],
+  },
+  {
+    id: "trench-w",
+    category: "Текстиль",
+    label: "Тренчи",
+    icon: "Minus",
+    items: [
+      { name: "Тренч London Classic", price: 11900, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/c74a1f4a-3bbd-4688-8561-c9d11ce29641.jpg" },
+      { name: "Тренч Paris Slim", price: 14300, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/c74a1f4a-3bbd-4688-8561-c9d11ce29641.jpg" },
+      { name: "Тренч Sand Belted", price: 12700, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/c74a1f4a-3bbd-4688-8561-c9d11ce29641.jpg" },
+      { name: "Тренч Dark Minimal", price: 16500, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/c74a1f4a-3bbd-4688-8561-c9d11ce29641.jpg" },
+      { name: "Тренч Rain Proof", price: 10200, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/c74a1f4a-3bbd-4688-8561-c9d11ce29641.jpg" },
+      { name: "Тренч Oversized Wrap", price: 18900, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/c74a1f4a-3bbd-4688-8561-c9d11ce29641.jpg" },
+    ],
+  },
+  {
+    id: "puffer-w",
+    category: "Тепло",
+    label: "Зимние пуховики",
+    icon: "Flame",
+    items: [
+      { name: "Пуховик Arctic Pro", price: 19900, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/bfe85a1b-f2f6-4953-a13f-72678d4afc66.jpg" },
+      { name: "Пуховик Ice Shield", price: 23500, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/bfe85a1b-f2f6-4953-a13f-72678d4afc66.jpg" },
+      { name: "Пуховик Snow Queen", price: 17800, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/bfe85a1b-f2f6-4953-a13f-72678d4afc66.jpg" },
+      { name: "Пуховик Oversize Warm", price: 21400, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/bfe85a1b-f2f6-4953-a13f-72678d4afc66.jpg" },
+      { name: "Пуховик Quilted Long", price: 16200, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/bfe85a1b-f2f6-4953-a13f-72678d4afc66.jpg" },
+      { name: "Пуховик Down Ultra", price: 28900, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/bfe85a1b-f2f6-4953-a13f-72678d4afc66.jpg" },
+    ],
+  },
+  {
+    id: "light-w",
+    category: "Текстиль",
+    label: "Лёгкие модели",
+    icon: "Feather",
+    items: [
+      { name: "Ветровка Spring Air", price: 5900, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/84438ab4-1589-42c5-b380-fbe548ae16fa.jpg" },
+      { name: "Куртка Light Shell", price: 7200, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/84438ab4-1589-42c5-b380-fbe548ae16fa.jpg" },
+      { name: "Бомбер Soft Touch", price: 8800, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/84438ab4-1589-42c5-b380-fbe548ae16fa.jpg" },
+      { name: "Куртка Pastel Breeze", price: 6400, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/84438ab4-1589-42c5-b380-fbe548ae16fa.jpg" },
+      { name: "Ветровка Minimal Zip", price: 5400, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/84438ab4-1589-42c5-b380-fbe548ae16fa.jpg" },
+      { name: "Куртка Fresh Layer", price: 7900, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/84438ab4-1589-42c5-b380-fbe548ae16fa.jpg" },
+    ],
+  },
+  {
+    id: "leather-m",
+    category: "Кожа",
+    label: "Кожаные куртки мужские",
+    icon: "Zap",
+    letter: "М",
+    items: [
+      { name: "Куртка Men's Biker", price: 21900, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/4e4fed25-3ebb-4247-b6aa-daffd0d65153.jpg" },
+      { name: "Куртка Racer Dark", price: 18700, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/4e4fed25-3ebb-4247-b6aa-daffd0d65153.jpg" },
+      { name: "Куртка Aviator Brown", price: 24500, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/4e4fed25-3ebb-4247-b6aa-daffd0d65153.jpg" },
+      { name: "Куртка Slim Rider", price: 16900, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/4e4fed25-3ebb-4247-b6aa-daffd0d65153.jpg" },
+      { name: "Куртка Classic Moto", price: 19300, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/4e4fed25-3ebb-4247-b6aa-daffd0d65153.jpg" },
+      { name: "Куртка Street Black", price: 22100, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/4e4fed25-3ebb-4247-b6aa-daffd0d65153.jpg" },
+    ],
+  },
+  {
+    id: "shearling-m",
+    category: "Мех",
+    label: "Дублёнки мужские",
+    icon: "Wind",
+    letter: "М",
+    items: [
+      { name: "Дублёнка Men's Ranch", price: 29900, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/05a3d77b-6e38-4f70-93de-be3fb575cdd0.jpg" },
+      { name: "Дублёнка Sheriff Dark", price: 34500, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/05a3d77b-6e38-4f70-93de-be3fb575cdd0.jpg" },
+      { name: "Дублёнка Toscana Men", price: 38000, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/05a3d77b-6e38-4f70-93de-be3fb575cdd0.jpg" },
+      { name: "Дублёнка Classic Brown", price: 27400, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/05a3d77b-6e38-4f70-93de-be3fb575cdd0.jpg" },
+      { name: "Дублёнка Mountain Pro", price: 32100, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/05a3d77b-6e38-4f70-93de-be3fb575cdd0.jpg" },
+      { name: "Дублёнка Winter Boss", price: 36700, img: "https://cdn.poehali.dev/projects/3b9d10d9-6e20-4245-b7a2-a08729a85351/files/05a3d77b-6e38-4f70-93de-be3fb575cdd0.jpg" },
+    ],
+  },
 ];
 
 const BENEFITS = [
@@ -141,6 +303,7 @@ function useReveal() {
 
 export default function Index() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [openCatalog, setOpenCatalog] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [phoneModalOpen, setPhoneModalOpen] = useState(false);
@@ -393,7 +556,7 @@ export default function Index() {
       {/* ── CATALOG ──────────────────────────────────────── */}
       <section id="catalog" className="py-16 md:py-28 px-5 md:px-6" style={{ background: "#13131600", borderTop: "1px solid #2a2a31" }}>
         <div ref={catalogReveal.ref} className="max-w-7xl mx-auto">
-          <div className={`mb-16 reveal ${catalogReveal.visible ? "visible" : ""}`}>
+          <div className={`mb-12 reveal ${catalogReveal.visible ? "visible" : ""}`}>
             <span className="section-eyebrow">Ассортимент</span>
             <div className="accent-bar" />
             <h2
@@ -413,24 +576,60 @@ export default function Index() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {PRODUCTS.map((p, i) => (
-              <div
-                key={i}
-                className={`catalog-card${p.letter === "М" ? " catalog-card--m" : ""} reveal delay-${i + 1} ${catalogReveal.visible ? "visible" : ""}`}
-              >
-                <div className="cat-tag">{p.category}</div>
-                <div className="flex items-start justify-between">
-                  <h3
-                    className="font-oswald text-lg leading-tight"
-                    style={{ color: "#f5f5f7", fontWeight: 400, letterSpacing: "0.03em" }}
+          <div className="catalog-accordion">
+            {CATALOG.map((group, gi) => {
+              const isOpen = openCatalog === group.id;
+              return (
+                <div key={group.id} className={`catalog-acc-row reveal delay-${gi + 1} ${catalogReveal.visible ? "visible" : ""}`}>
+                  <button
+                    className={`catalog-acc-btn${group.letter === "М" ? " catalog-card--m" : ""}${isOpen ? " catalog-acc-btn--open" : ""}`}
+                    onClick={() => setOpenCatalog(isOpen ? null : group.id)}
+                    aria-expanded={isOpen}
                   >
-                    {p.name}
-                  </h3>
-                  <Icon name={p.icon} fallback="Package" size={16} style={{ color: "#2a2a31", marginLeft: "8px", marginTop: "4px", flexShrink: 0 }} />
+                    <div className="flex items-center gap-3">
+                      <span className="cat-tag" style={{ position: "static", margin: 0 }}>{group.category}</span>
+                      <span className="font-oswald" style={{ fontSize: "1.05rem", fontWeight: 400, letterSpacing: "0.04em", color: "#f5f5f7" }}>
+                        {group.label}
+                      </span>
+                    </div>
+                    <Icon
+                      name="ChevronDown"
+                      size={18}
+                      style={{
+                        color: "#d7b56d",
+                        transition: "transform 0.3s ease",
+                        transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
+                        flexShrink: 0,
+                      }}
+                    />
+                  </button>
+
+                  <div className={`catalog-acc-panel${isOpen ? " catalog-acc-panel--open" : ""}`}>
+                    <div className="catalog-items-grid">
+                      {group.items.map((item, ii) => (
+                        <div key={ii} className="product-card">
+                          <div className="product-card__img-wrap">
+                            <img src={item.img} alt={item.name} className="product-card__img" loading="lazy" />
+                          </div>
+                          <div className="product-card__body">
+                            <h4 className="product-card__name font-oswald">{item.name}</h4>
+                            <div className="product-card__sizes">
+                              {SIZES.map((s) => (
+                                <span key={s} className="product-card__size">{s}</span>
+                              ))}
+                            </div>
+                            <div className="product-card__footer">
+                              <span className="product-card__price">от {item.price.toLocaleString("ru-RU")} ₽</span>
+                              <button className="product-card__btn">Купить</button>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

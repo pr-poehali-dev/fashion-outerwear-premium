@@ -195,6 +195,181 @@
 .catalog-card--m::after {
   content: "М";
 }
+
+/* ── Accordion ─────────────────────────────────── */
+.catalog-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.catalog-acc-row {
+  border: 1px solid #2a2a31;
+  background: #17171a;
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+.catalog-acc-row:hover {
+  border-color: rgba(215, 181, 109, 0.25);
+}
+.catalog-acc-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  text-align: left;
+  gap: 12px;
+  transition: background 0.25s ease;
+}
+.catalog-acc-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 0;
+  background: #d7b56d;
+  transition: height 0.3s ease;
+}
+.catalog-acc-btn::after {
+  content: "Ж";
+  font-family: "Great Vibes", cursive;
+  font-size: 4.5rem;
+  color: #d7b56d;
+  opacity: 0.1;
+  position: absolute;
+  top: -6px;
+  right: 48px;
+  line-height: 1;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.catalog-acc-btn.catalog-card--m::after {
+  content: "М";
+}
+.catalog-acc-btn--open::before,
+.catalog-acc-btn:hover::before {
+  height: 100%;
+}
+.catalog-acc-btn--open::after,
+.catalog-acc-btn:hover::after {
+  opacity: 0.18;
+}
+.catalog-acc-btn--open {
+  background: rgba(215, 181, 109, 0.04);
+}
+
+/* Panel slide-down */
+.catalog-acc-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+.catalog-acc-panel--open {
+  max-height: 2000px;
+}
+.catalog-items-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: #2a2a31;
+  border-top: 1px solid #2a2a31;
+}
+@media (min-width: 640px) {
+  .catalog-items-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .catalog-items-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+/* Product card */
+.product-card {
+  background: #13131a;
+  display: flex;
+  flex-direction: column;
+}
+.product-card__img-wrap {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+}
+.product-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.product-card:hover .product-card__img {
+  transform: scale(1.04);
+}
+.product-card__body {
+  padding: 14px 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+.product-card__name {
+  font-size: 0.82rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  color: #f5f5f7;
+  line-height: 1.3;
+}
+.product-card__sizes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.product-card__size {
+  font-size: 0.65rem;
+  font-family: "IBM Plex Sans", sans-serif;
+  border: 1px solid #2a2a31;
+  color: #7a7a8a;
+  padding: 2px 5px;
+  letter-spacing: 0.04em;
+}
+.product-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  margin-top: auto;
+}
+.product-card__price {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.78rem;
+  color: #d7b56d;
+  font-weight: 400;
+  white-space: nowrap;
+}
+.product-card__btn {
+  font-family: "Oswald", sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: #d7b56d;
+  color: #0d0d10;
+  border: none;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background 0.2s ease;
+}
+.product-card__btn:hover {
+  background: #e8c97e;
+}
+
 .benefit-card {
   background: #17171a;
   border: 1px solid #2a2a31;
